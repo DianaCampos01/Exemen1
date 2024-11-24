@@ -33,6 +33,7 @@ export class EjemploListComponent implements OnInit{
   eliminarEjemplo(id:String){
     this._srvEjemplo.deleteEjemplo(id).subscribe(eje => {
       console.log('Ejemplo eliminado')
+      window.location.reload();
     })
   }
 }
