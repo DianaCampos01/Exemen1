@@ -1,0 +1,66 @@
+.card {
+  background-color: #f8f9fa;
+  border: 2px solid #1e90ff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 60px; /* Espacio para que la imagen circular sobresalga */
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  margin-top: 80px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  color: #007bff;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.card-text {
+  font-family: 'Verdana', sans-serif;
+  color: #343a40;
+  text-align: center;
+}
+
+.card-img-top {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  position: absolute;
+  top: -75px; /* Hace que el círculo sobresalga por la parte superior */
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid #fff; /* Añade un borde blanco alrededor del círculo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 5px;
+}
+
+.btn-primary {
+  background-color: #28a745;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #218838;
+}
+
+svg {
+  margin: 0 auto;
+}
+
+.alert {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+}
+

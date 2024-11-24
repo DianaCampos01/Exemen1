@@ -1,0 +1,44 @@
+/* Estilos de la tarjeta */
+.drink-card {
+  border: 1px solid #28a745; /* Borde verde claro */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2); /* Sombra con tono verde */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f0fff0; /* Fondo verde muy claro */
+  padding-top: 12px;
+}
+
+.drink-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 128, 0, 0.4);
+}
+
+.card-title {
+  color: #28a745; /* Verde claro para el título */
+  font-weight: bold;
+}
+
+.card-text {
+  color: black; /* Verde un poco más oscuro para los textos */
+}
+
+.btn-primary {
+  background-color: #28a745; /* Botón con verde claro */
+  border-color: #28a745;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #218838; /* Verde más oscuro en hover */
+  border-color: #1e7e34;
+}
+
+/* Estilos para la imagen */
+.drink-image {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+
+

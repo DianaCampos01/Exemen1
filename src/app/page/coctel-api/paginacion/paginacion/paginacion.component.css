@@ -1,0 +1,20 @@
+.pagination .page-link {
+  color: #28a745; /* Verde claro */
+  background-color: #f0fff0; /* Fondo verde muy claro */
+  border: 1px solid #28a745; /* Borde verde */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+  background-color: #28a745; /* Fondo verde claro en hover */
+  color: white; /* Texto blanco en hover */
+}
+
+
+.page-item{
+  cursor: pointer;
+  margin-right: 3px;
+}
+.page-link{
+  cursor: pointer;
+}

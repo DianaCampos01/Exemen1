@@ -1,0 +1,35 @@
+<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true"
+    *ngIf="ejemplo">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>{{ejemplo.name}} {{ejemplo.apellido}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" id="id" disabled class="form-control " value="{{ejemplo._id}}">
+
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" id="nombre" class="form-control" value="{{ejemplo.name}}">
+
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" id="apellido" class="form-control" value="{{ejemplo.apellido}}">
+
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" id="edad" class="form-control" value="{{ejemplo.edad}}">
+
+                <label for="contactos" class="form-label">Contacto</label>
+                <div class="contacto" *ngFor="let con of ejemplo.contacto">
+                    <input type="text" id="contactos" class="form-control"  value="{{con}}">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn btn-success">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>

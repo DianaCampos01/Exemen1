@@ -1,0 +1,26 @@
+<table class="table" *ngIf="ejemplo?.ejemplo">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Contacto</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let eje of ejemplo?.ejemplo; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{eje._id}}</td>
+            <td>{{eje.name}}</td>
+            <td>{{eje.apellido}}</td>
+            <td>{{eje.edad}}</td>
+            <td>{{eje.contacto}}</td>
+            <td class="row"><button class="btn btn-outline-success col-4 me-1" (click)="openmodal(eje)">Editar</button> <button
+                    class="btn btn-outline-danger col-4" (click)="eliminarEjemplo(eje._id!)">Eliminar</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<app-modal-edit></app-modal-edit>
