@@ -1,0 +1,80 @@
+/* Estilo general del modal */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+}
+
+/* Header del modal */
+.modal-header {
+    background-color: #343a40;
+    color: #ffffff;
+    border-bottom: 2px solid #6c757d;
+    padding: 1rem;
+}
+
+.modal-header h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Botón cerrar */
+.modal-header .btn-close {
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+/* Body del modal */
+.modal-body {
+    padding: 1.5rem;
+    color: #212529;
+}
+
+.modal-body .form-label {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.modal-body .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.modal-body .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Footer del modal */
+.modal-footer {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.modal-footer .btn-success {
+    background-color: #28a745;
+    border: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.modal-footer .btn-success:hover {
+    background-color: #218838;
+}

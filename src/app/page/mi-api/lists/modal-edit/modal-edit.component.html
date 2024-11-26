@@ -3,25 +3,35 @@
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1>{{ejemplo.name}} {{ejemplo.apellido}}</h1>
+                <h5>{{ejemplo._id}} </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
-                <label for="id" class="form-label">ID</label>
-                <input type="text" id="id" disabled class="form-control " value="{{ejemplo._id}}">
 
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" id="nombre" class="form-control" #nombre value="{{ejemplo.name}}">
+                <label for="nombre" class="form-label">Marca</label>
+                <input type="text" id="nombre" class="form-control" value="{{ejemplo.marca}}" #nombre >
 
-                <label for="apellido" class="form-label">Apellido</label>
-                <input type="text" id="apellido" class="form-control" #apellido value="{{ejemplo.apellido}}">
+                <label for="apellido" class="form-label">Tipo de Ram</label>
+                <input type="text" id="apellido" class="form-control" value="{{ejemplo.tRam}}" #apellido >
 
-                <label for="edad" class="form-label">Edad</label>
-                <input type="number" id="edad" class="form-control" #edad value="{{ejemplo.edad}}">
+                <label for="edad" class="form-label">Cantidad de Ram</label>
+                <input type="number" id="edad" class="form-control" #edad  value="{{ejemplo.ramC}}">
 
-                <label for="contactos" class="form-label">Contacto</label>
-                <input type="text" id="contactos" #contacto class="form-control"  value="{{ejemplo.contacto}}">
+                <label for="contactos" class="form-label">Tipo de memoria</label>
+                <input type="text" id="contactos" #Tmemoria class="form-control" value="{{ejemplo.tMemoria}}">
+
+                <label for="contactos" class="form-label">Cantidad de Memoria</label>
+                <input type="text" id="contactos" #cMemoria class="form-control" value="{{ejemplo.cMemoria}}">
+
+                <label for="contactos" class="form-label">Procesador</label>
+                <input type="text" id="contactos" #procesador class="form-control" value="{{ejemplo.procesador}}">
+
+                <label for="contactos" class="form-label">Tarjeta Grafica</label>
+                <input type="text" id="contactos" #Tgrafica class="form-control" value="{{ejemplo.tarjetaDrafica}}">
+
+                <label for="contactos" class="form-label">Precio</label>
+                <input type="text" id="contactos" #precio class="form-control" value="{{ejemplo.precio}}">
 
             </div>
 
@@ -29,7 +39,9 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button"
                 class="btn btn-success"
-                (click)="editarEjemplo(nombre.value, apellido.value,  edad.value , contacto.value, ejemplo._id!)">Editar</button>
+                (click)="editarEjemplo(nombre.value, apellido.value,  edad.value , Tmemoria.value,
+                    cMemoria.value, procesador.value, Tgrafica.value, precio.value, ejemplo._id!
+                )">Agregar</button>
             </div>
         </div>
     </div>

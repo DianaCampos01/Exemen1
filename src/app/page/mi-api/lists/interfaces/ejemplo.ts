@@ -1,11 +1,15 @@
-export interface EjemploAll {
-    ejemplo: Ejemplo[];
+export interface computadorR {
+    tcomputadoras: Tcomputadora[];
 }
 
-export interface Ejemplo {
-    _id?:      string;
-    name:     string;
-    apellido: string;
-    edad:     number;
-    contacto: string[];
+export interface Tcomputadora {
+    _id?:            string;
+    marca:          string;
+    tRam:           string;
+    ramC:           number;
+    tMemoria:       string;
+    cMemoria:       number;
+    procesador:     string;
+    tarjetaDrafica: string;
+    precio:         number;
 }

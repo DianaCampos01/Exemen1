@@ -1,8 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Ejemplo, EjemploAll } from '../interfaces/ejemplo';
+
 import { NgFor, NgIf } from '@angular/common';
 import { EjemploService } from '../services/ejemplo.service';
 import { ModalEditComponent } from '../modal-edit/modal-edit.component';
+import { computadorR, Tcomputadora } from '../interfaces/ejemplo';
 
 @Component({
   selector: 'app-ejemplo-list',
@@ -12,7 +13,7 @@ import { ModalEditComponent } from '../modal-edit/modal-edit.component';
   styleUrl: './ejemplo-list.component.css'
 })
 export class EjemploListComponent implements OnInit{
-  @Input() ejemplo:EjemploAll | undefined
+  @Input() computadoras:computadorR | undefined
 
   @ViewChild(ModalEditComponent) public modal!: ModalEditComponent
 
@@ -24,7 +25,7 @@ export class EjemploListComponent implements OnInit{
       
   }
 
-  openmodal(ejemplo:Ejemplo){
+  openmodal(ejemplo:Tcomputadora){
     if(this.modal){
       this.modal.open(ejemplo)
     }

@@ -1,7 +1,7 @@
 import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { EjemploService } from '../services/ejemplo.service';
 import { isPlatformBrowser } from '@angular/common';
-import { Ejemplo } from '../interfaces/ejemplo';
+import { Tcomputadora } from '../interfaces/ejemplo';
 
 @Component({
   selector: 'app-modal-agregar',
@@ -54,12 +54,18 @@ export class ModalAgregarComponent {
     }
   }
 
-  Agregar(nombre:String, apellido:String, edad:String, contacto:String){
-    const newEjemplo:Ejemplo = {
-      name: String(nombre),
-      apellido: String(apellido),
-      edad: Number(edad),
-      contacto:[String(contacto)]
+  Agregar(nombre:String, apellido:String, 
+    edad:String, tmemoria:String, 
+    cmemo:String, procesador:String, tarjetaG:String, numero:String ){
+    const newEjemplo:Tcomputadora = {
+      marca: String(nombre),
+      tRam: String(apellido),
+      ramC: Number(edad),
+      tMemoria: String(tmemoria),
+      cMemoria: Number(cmemo),
+      procesador: String(procesador),
+      tarjetaDrafica: String(tarjetaG),
+      precio: Number(numero)
     }
     
     this._srvEjemplo.postEjemplo(newEjemplo).subscribe({

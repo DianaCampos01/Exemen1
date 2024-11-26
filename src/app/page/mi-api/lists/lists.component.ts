@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EjemploService } from './services/ejemplo.service';
-import { EjemploAll } from './interfaces/ejemplo';
+import { computadorR } from './interfaces/ejemplo';
 import { EjemploListComponent } from './ejemplo-list/ejemplo-list.component';
 import { ModalAgregarComponent } from './modal-agregar/modal-agregar.component';
 
@@ -12,7 +12,7 @@ import { ModalAgregarComponent } from './modal-agregar/modal-agregar.component';
   styleUrl: './lists.component.css'
 })
 export class ListsComponent implements OnInit{
-  ejemplo:EjemploAll | undefined
+  ejemplo:computadorR | undefined
 
   @ViewChild(ModalAgregarComponent) public modal!:ModalAgregarComponent
   constructor(

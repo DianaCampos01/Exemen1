@@ -1,24 +1,31 @@
-<table class="table" *ngIf="ejemplo?.ejemplo">
+<table class="table mt-2" *ngIf="computadoras?.tcomputadoras">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th scope="col">#</th>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Edad</th>
-            <th scope="col">Contacto</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Tipo de Ram</th>
+            <th scope="col">Espacio de Ram</th>
+            <th scope="col">Tipo de memoria</th>
+            <th scope="col">Espacio de memoria</th>
+            <th scope="col">Procesador</th>
+            <th scope="col">Tarjeta grafica</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let eje of ejemplo?.ejemplo; let i = index">
+        <tr *ngFor="let eje of computadoras?.tcomputadoras; let i = index">
             <th scope="row">{{i+1}}</th>
-            <td>{{eje._id}}</td>
-            <td>{{eje.name}}</td>
-            <td>{{eje.apellido}}</td>
-            <td>{{eje.edad}}</td>
-            <td>{{eje.contacto}}</td>
-            <td class="row"><button class="btn btn-outline-success col-4 me-1" (click)="openmodal(eje)">Editar</button> <button
-                    class="btn btn-outline-danger col-4" (click)="eliminarEjemplo(eje._id!)">Eliminar</button></td>
+            <td>{{eje.marca}}</td>
+            <td>{{eje.tRam}}</td>
+            <td>{{eje.ramC}}</td>
+            <td>{{eje.tMemoria}}</td>
+            <td>{{eje.cMemoria}}</td>
+            <td>{{eje.procesador}}</td>
+            <td>{{eje.tarjetaDrafica}}</td>
+            <td>{{eje.precio}}</td>
+            <td class="row"><button class="btn btn-outline-success col me-1" (click)="openmodal(eje)">Editar</button> <button
+                    class="btn btn-outline-danger col me-1" (click)="eliminarEjemplo(eje._id!)">Eliminar</button></td>
         </tr>
     </tbody>
 </table>

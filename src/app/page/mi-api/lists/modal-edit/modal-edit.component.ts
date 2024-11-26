@@ -1,5 +1,5 @@
-import { Component, ElementRef, Inject, Input, PLATFORM_ID, ViewChild } from '@angular/core';
-import { Ejemplo } from '../interfaces/ejemplo';
+import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { computadorR, Tcomputadora } from '../interfaces/ejemplo';
 import { isPlatformBrowser, NgFor, NgIf } from '@angular/common';
 import { EjemploService } from '../services/ejemplo.service';
 
@@ -10,12 +10,20 @@ import { EjemploService } from '../services/ejemplo.service';
   templateUrl: './modal-edit.component.html',
   styleUrl: './modal-edit.component.css'
 })
-export class ModalEditComponent {
-  @Input() ejemplo: Ejemplo = {
-    name: '',
-    apellido: '',
-    edad: 0,
-    contacto: []
+export class ModalEditComponent  implements OnInit{
+  @Input() ejemplo: Tcomputadora = {
+    marca: '',
+    tRam: '',
+    ramC: 0,
+    tMemoria: '',
+    cMemoria: 0,
+    procesador: '',
+    tarjetaDrafica: '',
+    precio: 0
+  }
+
+  ngOnInit(): void {
+      console.log(this.ejemplo._id)
   }
 
   private bootstrapmodal:any
@@ -38,7 +46,7 @@ export class ModalEditComponent {
     });
   }
 
-  open(ejemplo: Ejemplo) {
+  open(ejemplo: Tcomputadora) {
     this.ejemplo = ejemplo;
     if (isPlatformBrowser(this.plataformId)) {
       if (this.bootstrapmodal) {
@@ -62,13 +70,21 @@ export class ModalEditComponent {
     }
   }
 
-  editarEjemplo(nombre:String, apellido:String, edad:String, contacto:String, id:String){
-    const newEjemplo:Ejemplo = {
-      name: String(nombre),
-      apellido: String(apellido),
-      edad: Number(edad),
-      contacto:[String(contacto)]
-    } 
+  editarEjemplo(nombre:String, apellido:String, 
+    edad:String, tmemoria:String, 
+    cmemo:String, procesador:String, tarjetaG:String, numero:String, id:String ){
+    const newEjemplo:Tcomputadora = {
+      marca: String(nombre),
+      tRam: String(apellido),
+      ramC: Number(edad),
+      tMemoria: String(tmemoria),
+      cMemoria: Number(cmemo),
+      procesador: String(procesador),
+      tarjetaDrafica: String(tarjetaG),
+      precio: Number(numero)
+    }
+
+    console.log(this.ejemplo._id)
     this._srvEjemplo.putEjemplo(id, newEjemplo).subscribe({
       next:(respuest) => {
         console.log('Editado con exito')
@@ -77,7 +93,8 @@ export class ModalEditComponent {
       },
 
       error: (error) => {
-        console.log(`error al intentar actualizar: ${error}`)
+        console.log(`Error al intentar actualizar: ${error.message}`);
+        console.log('Respuesta del servidor:', error);
       }
     })
   }

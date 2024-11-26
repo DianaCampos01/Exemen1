@@ -8,17 +8,29 @@
             </div>
 
             <div class="modal-body">
-                <label for="nombre" class="form-label">Nombre</label>
+                <label for="nombre" class="form-label">Marca</label>
                 <input type="text" id="nombre" class="form-control" #nombre >
 
-                <label for="apellido" class="form-label">Apellido</label>
+                <label for="apellido" class="form-label">Tipo de Ram</label>
                 <input type="text" id="apellido" class="form-control" #apellido >
 
-                <label for="edad" class="form-label">Edad</label>
+                <label for="edad" class="form-label">Cantidad de Ram</label>
                 <input type="number" id="edad" class="form-control" #edad >
 
-                <label for="contactos" class="form-label">Contacto</label>
-                <input type="text" id="contactos" #contacto class="form-control">
+                <label for="contactos" class="form-label">Tipo de memoria</label>
+                <input type="text" id="contactos" #Tmemoria class="form-control">
+
+                <label for="contactos" class="form-label">Cantidad de Memoria</label>
+                <input type="text" id="contactos" #cMemoria class="form-control">
+
+                <label for="contactos" class="form-label">Procesador</label>
+                <input type="text" id="contactos" #procesador class="form-control">
+
+                <label for="contactos" class="form-label">Tarjeta Grafica</label>
+                <input type="text" id="contactos" #Tgrafica class="form-control">
+
+                <label for="contactos" class="form-label">Precio</label>
+                <input type="text" id="contactos" #precio class="form-control">
 
             </div>
 
@@ -26,7 +38,9 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button"
                 class="btn btn-success"
-                (click)="Agregar(nombre.value, apellido.value,  edad.value , contacto.value)">Agregar</button>
+                (click)="Agregar(nombre.value, apellido.value,  edad.value , Tmemoria.value,
+                    cMemoria.value, procesador.value, Tgrafica.value, precio.value
+                )">Agregar</button>
             </div>
         </div>
     </div>

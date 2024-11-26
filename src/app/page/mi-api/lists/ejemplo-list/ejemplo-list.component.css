@@ -1,0 +1,56 @@
+button {
+    width: 100% ;
+}
+
+/* Estilo general de la tabla */
+.table {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #b1afaf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tabla */
+.table thead {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.table thead th {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+/* Celdas del cuerpo */
+.table tbody td,
+.table tbody th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+
+/* Ajustes para la columna de acciones */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.col-5 {
+    flex: 0 0 auto;
+    max-width: 45%;
+}
