@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
-import { computadorR, Tcomputadora } from '../interfaces/ejemplo';
+import { Curso } from '../interfaces/cursos';
 import { isPlatformBrowser, NgFor, NgIf } from '@angular/common';
 import { EjemploService } from '../services/ejemplo.service';
 
@@ -11,25 +11,22 @@ import { EjemploService } from '../services/ejemplo.service';
   styleUrl: './modal-edit.component.css'
 })
 export class ModalEditComponent  implements OnInit{
-  @Input() ejemplo: Tcomputadora = {
-    marca: '',
-    tRam: '',
-    ramC: 0,
-    tMemoria: '',
-    cMemoria: 0,
-    procesador: '',
-    tarjetaDrafica: '',
+  @Input() curso: Curso = {
+    _id: '',
+    nombre: '',
+    duracionHoras: 0,
+    nivel: '',
     precio: 0
-  }
+  };
 
   ngOnInit(): void {
-      console.log(this.ejemplo._id)
+      
   }
 
   private bootstrapmodal:any
   @ViewChild('modalElement') public modal!:ElementRef
   constructor(@Inject(PLATFORM_ID) private plataformId: object,
-  private _srvEjemplo:EjemploService){}
+  private _srvCurso:EjemploService){}
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.plataformId)) {
@@ -46,8 +43,8 @@ export class ModalEditComponent  implements OnInit{
     });
   }
 
-  open(ejemplo: Tcomputadora) {
-    this.ejemplo = ejemplo;
+  open(cursos: Curso) {
+    this.curso = cursos;
     if (isPlatformBrowser(this.plataformId)) {
       if (this.bootstrapmodal) {
         this.bootstrapmodal.show();
@@ -70,32 +67,52 @@ export class ModalEditComponent  implements OnInit{
     }
   }
 
-  editarEjemplo(nombre:String, apellido:String, 
-    edad:String, tmemoria:String, 
-    cmemo:String, procesador:String, tarjetaG:String, numero:String, id:String ){
-    const newEjemplo:Tcomputadora = {
-      marca: String(nombre),
-      tRam: String(apellido),
-      ramC: Number(edad),
-      tMemoria: String(tmemoria),
-      cMemoria: Number(cmemo),
-      procesador: String(procesador),
-      tarjetaDrafica: String(tarjetaG),
-      precio: Number(numero)
+  editarCurso(
+    nombre: string,
+    duracionHoras: string,
+    nivel: string,
+    precio: string,
+    id: string
+  ) {
+    // Validar campos vacíos
+    if (
+      !nombre.trim() ||
+      !duracionHoras.trim() ||
+      !nivel.trim() ||
+      !precio.trim()
+    ) {
+      console.error('Todos los campos son obligatorios');
+      alert('Por favor, complete todos los campos antes de guardar los cambios.');
+      return;
     }
-
-    console.log(this.ejemplo._id)
-    this._srvEjemplo.putEjemplo(id, newEjemplo).subscribe({
-      next:(respuest) => {
-        console.log('Editado con exito')
-        this.closeModal()
-        window.location.reload();
+  
+    // Validar que los campos numéricos sean números válidos
+    if (isNaN(Number(duracionHoras)) || isNaN(Number(precio))) {
+      console.error('Duración y Precio deben ser números válidos');
+      alert('Por favor, ingrese valores numéricos en los campos correspondientes.');
+      return;
+    }
+  
+    // Crear el objeto para actualizar
+    const newCurso = {
+      _id: id,
+      nombre: nombre.trim(),
+      duracionHoras: Number(duracionHoras),
+      nivel: nivel.trim(),
+      precio: Number(precio),
+    };
+  
+    // Llamar al servicio para actualizar el curso
+    this._srvCurso.putCurso(id, newCurso).subscribe({
+      next: (res) => {
+        console.log('Curso editado con éxito');
+        this.closeModal(); // Cerrar el modal
+        window.location.reload(); // Recargar la página para reflejar los cambios
       },
-
       error: (error) => {
-        console.log(`Error al intentar actualizar: ${error.message}`);
+        console.error(`Error al intentar actualizar el curso: ${error.message}`);
         console.log('Respuesta del servidor:', error);
       }
-    })
+    });
   }
 }

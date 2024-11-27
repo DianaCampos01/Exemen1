@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EjemploService } from './services/ejemplo.service';
-import { computadorR } from './interfaces/ejemplo';
-import { EjemploListComponent } from './ejemplo-list/ejemplo-list.component';
+import {  Cursos } from './interfaces/cursos';
+import { EjemploListComponent } from './Curso-list/ejemplo-list.component';
 import { ModalAgregarComponent } from './modal-agregar/modal-agregar.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { ModalAgregarComponent } from './modal-agregar/modal-agregar.component';
   styleUrl: './lists.component.css'
 })
 export class ListsComponent implements OnInit{
-  ejemplo:computadorR | undefined
+  cursos:Cursos | undefined
 
   @ViewChild(ModalAgregarComponent) public modal!:ModalAgregarComponent
   constructor(
@@ -20,9 +20,8 @@ export class ListsComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this._srvEjemplo.getAllEjemplo().subscribe(ejempl => {
-      this.ejemplo = ejempl
-      console.log(this.ejemplo)
+    this._srvEjemplo.getAllCursos().subscribe(curso => {
+      this.cursos = curso
     })
   }
 

@@ -1,0 +1,102 @@
+/* Fondo y estilo general del navbar */
+.navbar {
+    background-color: #ffffff; /* Fondo blanco para el navbar */
+    border-bottom: 2px solid #ddd; /* Línea sutil de separación */
+    padding: 15px 20px;
+}
+
+/* Estilo para el nombre de la marca */
+.navbar-brand {
+    color: #2C3E50; /* Un color oscuro para la marca */
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #FF7043; /* Color cálido cuando se pasa el ratón */
+}
+
+/* Estilo para los links de navegación */
+.navbar-nav .nav-link {
+    color: #2C3E50; /* Color oscuro para los enlaces */
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link.active {
+    color: #FF7043; /* Color cálido para el link activo */
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #f1f1f1; /* Fondo sutil al pasar el ratón */
+    color: #FF7043;
+}
+
+/* Estilo para el dropdown */
+.nav-item.dropdown .dropdown-menu {
+    background-color: #ffffff; /* Fondo blanco para el menú desplegable */
+    border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item.dropdown .dropdown-item {
+    color: #2C3E50; /* Color oscuro para los items del dropdown */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #FF7043;
+}
+
+/* Estilo para los elementos de usuario */
+.d-flex.align-items-center {
+    color: #2C3E50; /* Color oscuro para el texto */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-left: 20px;
+}
+
+.d-flex img {
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #FF7043; /* Borde cálido para la imagen de perfil */
+}
+
+.d-flex span {
+    font-size: 1.1rem;
+}
+
+/* Estilo del botón de logout */
+.btn-outline-danger {
+    border-color: #FF7043;
+    color: #FF7043;
+}
+
+.btn-outline-danger:hover {
+    background-color: #FF7043;
+    color: white;
+}
+
+/* Estilo del botón de login */
+.btn-danger {
+    background-color: #FF7043;
+    border-color: #FF7043;
+}
+
+.btn-danger:hover {
+    background-color: #FF5733;
+    border-color: #FF5733;
+}
+
+/* Botón de login Google */
+.bi-google {
+    margin-left: 8px;
+}

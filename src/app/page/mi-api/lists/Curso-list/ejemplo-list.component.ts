@@ -3,7 +3,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { EjemploService } from '../services/ejemplo.service';
 import { ModalEditComponent } from '../modal-edit/modal-edit.component';
-import { computadorR, Tcomputadora } from '../interfaces/ejemplo';
+import {  Curso, Cursos } from '../interfaces/cursos';
 
 @Component({
   selector: 'app-ejemplo-list',
@@ -13,7 +13,7 @@ import { computadorR, Tcomputadora } from '../interfaces/ejemplo';
   styleUrl: './ejemplo-list.component.css'
 })
 export class EjemploListComponent implements OnInit{
-  @Input() computadoras:computadorR | undefined
+  @Input() cursos:Cursos | undefined
 
   @ViewChild(ModalEditComponent) public modal!: ModalEditComponent
 
@@ -25,15 +25,15 @@ export class EjemploListComponent implements OnInit{
       
   }
 
-  openmodal(ejemplo:Tcomputadora){
+  openmodal(cursos:Curso){
     if(this.modal){
-      this.modal.open(ejemplo)
+      this.modal.open(cursos)
     }
   }
 
-  eliminarEjemplo(id:String){
-    this._srvEjemplo.deleteEjemplo(id).subscribe(eje => {
-      console.log('Ejemplo eliminado')
+  eliminarCurso(id:String){
+    this._srvEjemplo.deleteCurso(id).subscribe(eje => {
+      console.log('Curso eliminado')
       window.location.reload();
     })
   }

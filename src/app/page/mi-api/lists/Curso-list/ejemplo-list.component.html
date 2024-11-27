@@ -1,0 +1,28 @@
+<table class="table mt-2" *ngIf="cursos?.cursos">
+    <thead>
+        <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Duración en horas</th>
+            <th scope="col">Nivel</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let curso of cursos?.cursos; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ curso.nombre }}</td>
+            <td>{{ curso.duracionHoras }}</td>
+            <td>{{ curso.nivel }}</td>
+            <td>{{ curso.precio }}</td>
+            <td class="row">
+                <button class="btn btn-outline-success col me-1" (click)="openmodal(curso)">Editar</button>
+                <button class="btn btn-outline-danger col me-1" (click)="eliminarCurso(curso._id!)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<app-modal-edit></app-modal-edit>

@@ -1,7 +1,7 @@
 import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { EjemploService } from '../services/ejemplo.service';
 import { isPlatformBrowser } from '@angular/common';
-import { Tcomputadora } from '../interfaces/ejemplo';
+import { Curso } from '../interfaces/cursos';
 
 @Component({
   selector: 'app-modal-agregar',
@@ -54,29 +54,35 @@ export class ModalAgregarComponent {
     }
   }
 
-  Agregar(nombre:String, apellido:String, 
-    edad:String, tmemoria:String, 
-    cmemo:String, procesador:String, tarjetaG:String, numero:String ){
-    const newEjemplo:Tcomputadora = {
-      marca: String(nombre),
-      tRam: String(apellido),
-      ramC: Number(edad),
-      tMemoria: String(tmemoria),
-      cMemoria: Number(cmemo),
-      procesador: String(procesador),
-      tarjetaDrafica: String(tarjetaG),
-      precio: Number(numero)
+  Agregar(nombre: string, duracionHoras: string, nivel: string, precio: string) {
+    if (!nombre.trim() || !duracionHoras.trim() || !nivel.trim() || !precio.trim()) {
+      console.error('Todos los campos son obligatorios');
+      alert('Por favor, complete todos los campos antes de agregar el curso.');
+      return;
+    }
+  
+    if (isNaN(Number(duracionHoras)) || isNaN(Number(precio))) {
+      console.error('Duración en horas y precio deben ser números válidos');
+      alert('Duración en horas y precio deben ser valores numéricos.');
+      return;
     }
     
-    this._srvEjemplo.postEjemplo(newEjemplo).subscribe({
+    const newCurso: Curso = {
+      nombre: String(nombre),
+      duracionHoras: Number(duracionHoras),
+      nivel: String(nivel),
+      precio: Number(precio),
+    };
+    this._srvEjemplo.postCurso(newCurso).subscribe({
       next: (res) => {
-        console.log('elemento agregado')
-        this.closeModal()
+        console.log('Curso agregado exitosamente');
+        this.closeModal(); 
         window.location.reload();
       },
       error: (error) => {
-        console.log(`error al agregar un nuevo elemento ${error}`)
-      }
-    })
+        console.log(`Error al agregar el curso: ${error}`);
+      },
+    });
   }
+  
 }

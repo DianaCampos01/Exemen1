@@ -1,46 +1,35 @@
-<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true"
-    >
+<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="cursoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1>Agregando Ejemplo</h1>
+                <h1>Agregando Curso</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
-                <label for="nombre" class="form-label">Marca</label>
-                <input type="text" id="nombre" class="form-control" #nombre >
+                <!-- Campo para Nombre -->
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" id="nombre" class="form-control" #nombre>
 
-                <label for="apellido" class="form-label">Tipo de Ram</label>
-                <input type="text" id="apellido" class="form-control" #apellido >
+                <!-- Campo para Duración en Horas -->
+                <label for="duracionHoras" class="form-label">Duración en Horas</label>
+                <input type="number" id="duracionHoras" class="form-control" #duracionHoras>
 
-                <label for="edad" class="form-label">Cantidad de Ram</label>
-                <input type="number" id="edad" class="form-control" #edad >
+                <!-- Campo para Nivel -->
+                <label for="nivel" class="form-label">Nivel</label>
+                <input type="text" id="nivel" class="form-control" #nivel>
 
-                <label for="contactos" class="form-label">Tipo de memoria</label>
-                <input type="text" id="contactos" #Tmemoria class="form-control">
-
-                <label for="contactos" class="form-label">Cantidad de Memoria</label>
-                <input type="text" id="contactos" #cMemoria class="form-control">
-
-                <label for="contactos" class="form-label">Procesador</label>
-                <input type="text" id="contactos" #procesador class="form-control">
-
-                <label for="contactos" class="form-label">Tarjeta Grafica</label>
-                <input type="text" id="contactos" #Tgrafica class="form-control">
-
-                <label for="contactos" class="form-label">Precio</label>
-                <input type="text" id="contactos" #precio class="form-control">
-
+                <!-- Campo para Precio -->
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" id="precio" class="form-control" #precio>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button"
-                class="btn btn-success"
-                (click)="Agregar(nombre.value, apellido.value,  edad.value , Tmemoria.value,
-                    cMemoria.value, procesador.value, Tgrafica.value, precio.value
-                )">Agregar</button>
+                <button type="button" class="btn btn-success" 
+                        (click)="Agregar(nombre.value, duracionHoras.value, nivel.value, precio.value)">
+                    Agregar
+                </button>
             </div>
         </div>
     </div>

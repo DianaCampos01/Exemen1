@@ -1,48 +1,48 @@
-<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true"
-    *ngIf="ejemplo">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5>{{ejemplo._id}} </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+<div
+  class="modal fade"
+  #modalElement
+  tabindex="-1"
+  aria-labelledby="pokemonModalLabel"
+  aria-hidden="true"
+  *ngIf="curso"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>{{ curso._id }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
 
-            <div class="modal-body">
+      <div class="modal-body">
+        <label for="nombre" class="form-label">Nombre del curso</label>
+        <input type="text" id="nombre" class="form-control" value="{{ curso.nombre }}" #nombre />
 
-                <label for="nombre" class="form-label">Marca</label>
-                <input type="text" id="nombre" class="form-control" value="{{ejemplo.marca}}" #nombre >
+        <label for="duracionHoras" class="form-label">Duración (Horas)</label>
+        <input type="number" id="duracionHoras" class="form-control" value="{{ curso.duracionHoras }}" #duracionHoras />
 
-                <label for="apellido" class="form-label">Tipo de Ram</label>
-                <input type="text" id="apellido" class="form-control" value="{{ejemplo.tRam}}" #apellido >
+        <label for="nivel" class="form-label">Nivel</label>
+        <input type="text" id="nivel" class="form-control" value="{{ curso.nivel }}" #nivel />
 
-                <label for="edad" class="form-label">Cantidad de Ram</label>
-                <input type="number" id="edad" class="form-control" #edad  value="{{ejemplo.ramC}}">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="text" id="precio" class="form-control" value="{{ curso.precio }}" #precio />
+      </div>
 
-                <label for="contactos" class="form-label">Tipo de memoria</label>
-                <input type="text" id="contactos" #Tmemoria class="form-control" value="{{ejemplo.tMemoria}}">
-
-                <label for="contactos" class="form-label">Cantidad de Memoria</label>
-                <input type="text" id="contactos" #cMemoria class="form-control" value="{{ejemplo.cMemoria}}">
-
-                <label for="contactos" class="form-label">Procesador</label>
-                <input type="text" id="contactos" #procesador class="form-control" value="{{ejemplo.procesador}}">
-
-                <label for="contactos" class="form-label">Tarjeta Grafica</label>
-                <input type="text" id="contactos" #Tgrafica class="form-control" value="{{ejemplo.tarjetaDrafica}}">
-
-                <label for="contactos" class="form-label">Precio</label>
-                <input type="text" id="contactos" #precio class="form-control" value="{{ejemplo.precio}}">
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button"
-                class="btn btn-success"
-                (click)="editarEjemplo(nombre.value, apellido.value,  edad.value , Tmemoria.value,
-                    cMemoria.value, procesador.value, Tgrafica.value, precio.value, ejemplo._id!
-                )">Agregar</button>
-            </div>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="editarCurso(
+            nombre.value,
+            duracionHoras.value,
+            nivel.value,
+            precio.value,
+            curso._id!
+          )"
+        >
+          Editar
+        </button>
+      </div>
     </div>
+  </div>
 </div>
